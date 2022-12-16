@@ -33,8 +33,8 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
-  basePath: process.env.NODE_ENV === 'production' ? '/blacklist-countries-zkapp' : undefined, // update if your repo name changes for 'npm run deploy' to work successfully
-  assetPrefix: process.env.NODE_ENV === 'production' ? '/blacklist-countries-zkapp/' : undefined, // update if your repo name changes for 'npm run deploy' to work successfully
+  basePath: process.env.NODE_ENV === 'production' ? '/blacklist-countries-mina-zkapp' : undefined, // update if your repo name changes for 'npm run deploy' to work successfully
+  assetPrefix: process.env.NODE_ENV === 'production' ? '/blacklist-countries-mina-zkapp/' : undefined, // update if your repo name changes for 'npm run deploy' to work successfully
 };
 
 module.exports = nextConfig

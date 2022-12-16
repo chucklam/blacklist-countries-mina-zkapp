@@ -12,6 +12,7 @@ import {
 } from 'snarkyjs';
 import ZkappWorkerClient from './zkappWorkerClient';
 
+const ZKAPP_PUBLIC_KEY = 'B62qmpZL8Rxv5aC7JBJNsbX7x1x5ahHfwfbrFnnqfnvom3YJRHX8GWt';
 let transactionFee = 0.1;
 
 export default function Home() {
@@ -83,7 +84,7 @@ export default function Home() {
         await zkappWorkerClient.compileContract();
         console.log('zkApp compiled');
 
-        const zkappPublicKey = PublicKey.fromBase58('B62qisn669bZqsh8yMWkNyCA7RvjrL6gfdr3TQxymDHNhTc97xE5kNV');
+        const zkappPublicKey = PublicKey.fromBase58(ZKAPP_PUBLIC_KEY);
 
         await zkappWorkerClient.initZkappInstance(zkappPublicKey);
 
@@ -197,6 +198,7 @@ export default function Home() {
   if (state.hasBeenSetup && state.accountExists) {
     mainContent = <div>
       <button onClick={onSendTransaction} disabled={state.creatingTransaction}> Send Transaction </button>
+      <div>zkApp at address {ZKAPP_PUBLIC_KEY}</div>
       <div> Current Number in zkApp: { state.currentNum!.toString() } </div>
       <button onClick={onRefreshCurrentNum}> Get Latest State </button>
     </div>
